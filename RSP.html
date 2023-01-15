@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>가위바위보 게임</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href = "RSP.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <style type="text/css">
+        body{
+            height: 100vh;
+            display: flex;
+            flex-direction:column;
+            justify-content: space-between;
+        }
+    </style>
+
+    <style>
+        body{
+            background-image: url(https://t4.ftcdn.net/jpg/04/54/61/43/360_F_454614312_CqPhZMy8mX9s69XfAniIHRzl6WS49IjT.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            width:100%;
+            height:auto;
+        }
+    </style>
+
+    <script>
+        $(document).ready( () => {
+           
+            function ComputerRspPlayer(yourRsp){
+                this.rsp = ['가위', '바위', '보'];
+                this.img = ['.img/가위.png', './img/바위.png', './img/보.png'];
+
+                console.log(Math.floor(Math.random() * 3));
+
+                this.computerRsp = this.rsp[Math.floor(Math.random() * 3)];
+
+                this.getResult = function() {
+
+                    console.log(this.computerRsp + "vs" + yourRsp);
+
+                    let result = "비겼습니다.";
+                    if(this.computerRsp == yourRsp )
+                        {
+                            alert("Neck and Neck");
+                            return result;
+                        }
+
+                    if(this.computerRsp == "가위"){
+
+                        if(yourRsp == "바위"){
+                            result = "당신이 이겼습니다!!!";
+                            alert("YOU WIN");
+                    }
+                        else if(yourRsp == "보"){
+                            result = "당신이 졌습니다...ㅋ";
+                            alert("YOU LOSER");
+                        }
+                           
+                    }else if(this.computerRsp == "바위"){
+
+                        if(yourRsp == "보"){
+                            result = "당신이 이겼습니다!!!";
+                            alert("YOU WIN");
+                        }
+                        else if(yourRsp == "가위"){
+                            result = "당신이 졌습니다...ㅋ";
+                            alert("YOU LOSER");
+                        }
+
+                    }else if(this.computerRsp == "보"){
+
+                        if(yourRsp == "가위"){
+                            result = "당신이 이겼습니다!!!";
+                            alert("YOU WIN");
+                        }
+                        else if(yourRsp == "바위"){
+                            result = "당신이 졌습니다...ㅋ";
+                            alert("YOU LOSER");
+                        }
+                    }
+                    return result;                  
+                }
+            };
+
+            $(".your-rsp").each(function (index, item) {
+               
+                $(this).click( () => {
+
+                    console.log($(this).text().trim())
+                    let rspPlayer = new ComputerRspPlayer($(this).text().trim());
+                    let result = rspPlayer.getResult();
+                    console.log(result);
+                   
+                    $("#rsp-result").text(result);                   
+                    $("#rsp-img-your").attr("src", $(this).text().trim() + ".png");
+                    $("#rsp-img-computer").attr("src", rspPlayer.computerRsp + ".png");
+                    $("#rsp-btn-computer").text(rspPlayer.computerRsp);
+                    
+                });
+            });
+        });
+        
+    </script>
+   
+</head>
+<body>
+<header>
+     <h1 class="RSP-header">&lt가위바위보 게임&gt</h1>
+   </header>
+   <h3 class="RSP-information">-게임 설명-</h3>
+   <h5 class="RSP-detail-information">1.규칙은 기존의 가위바위보 방식과 동일하다.</h5>
+   <h5 class="RSP-detail-information">2.왼쪽에 있는 3개 버튼 중 하나를 고른다.</h5>
+   <h5 class="RSP-detail-information">3.선택 후 각자가 낸 가위바위보가 각자 칸에 띄워진다.(컴퓨터는 버튼이름도 바뀐다)</h5>
+   <h5 class="RSP-detail-information">4.그 결과를 가운데 결과 창에 띄워준다.</h5>
+   <main>  
+      <div class="container">
+      <div class="row">
+        <div class="col-md-4 d-flex justify-content-center">
+          <div class="card" style="width: 18rem;">
+              <img id="rsp-img-your" src="https://t1.daumcdn.net/cfile/blog/2270473358CFA8BA23" class="card-img-top" alt="...">
+              <div class="card-body text-center">
+                <h5 class="card-title">당신</h5>
+                <button id="scissors" class="btn btn-primary m-2 your-rsp" >가위</a>
+                <button id="rock" class="btn btn-primary m-2 your-rsp">바위</a>
+                <button id="paper" class="btn btn-primary m-2 your-rsp">보</a>
+              </div>
+            </div>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center">
+            <div class="card" style="width: 18rem;">
+              <img src="https://www.ascentkorea.com/wp-content/uploads/2020/05/01873936-1BA9-4785-ADA2-2D23E3E6B64C.png" class="card-img-top" alt="...">
+              <div class="card-body text-center">
+                <h5 class="card-title">결과</h5>
+                <p id="rsp-result">누가 이길 것인가?!?!</p>
+              </div>
+            </div>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center">
+            <div class="card" style="width: 18rem;">
+              <img id="rsp-img-computer" src="https://cdn.pixabay.com/photo/2017/02/13/01/26/the-question-mark-2061539_960_720.png" class="card-img-top" alt="...">
+              <div class="card-body text-center">
+                <h5 class="card-title">컴퓨터</h5>
+                <button id="rsp-btn-computer" class="btn btn-primary m-2">무엇을 낼까요?</a>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+   </main>
+     
+    <footer class="text-center">
+   <hr />  
+      <p style = "color: red; font-size: 30px; font-weight: bolder;"><승부의 세계에서는 이기는 것 외에는 아무런 의미가 없다></p>
+    </footer>
+</body>
+</html>

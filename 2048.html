@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>2048</title>
+        <style></style>
+    </head>
+   <style>
+    td{
+    border: 2px solid #372c25;
+    border-radius: 9px;
+    text-align: center;
+    vertical-align: center;
+    font-size: 18pt;
+    font-weight: bold;
+    height: 120px;
+    width: 120px;
+    color: #684A23;
+    background-color: #FBEDDC;
+}
+p{
+    color: white;
+    vertical-align: top;
+}
+
+#title{
+    color: white;
+    font-size: 48px;
+    padding: 0px;
+    margin: 0px;
+}
+#titleBar{
+    margin-left: 70px;
+    margin-top: 35px;
+    height: 70px;
+}
+#titlePad{
+    width: 170px;
+    height: 35px;
+    background-color: #372C25;
+    margin: 0px;
+}
+#scorePad{
+    width: 170px;
+    height: 35px;
+    background-color: #46382E;
+    padding: 0px;
+    margin: 0px;
+}
+#scoreType{
+    font-size: 14pt;
+    margin: 0px;
+    color: #715541;
+}
+#score{
+    font-size: 28pt;
+    margin: 0px;
+    color: white;
+}
+#board{
+    margin-left: 70px;
+    margin-top: 5px;
+}
+#info{
+    margin-top: 3px;
+    margin-left: 82px;
+    font-size: 10pt;
+    color: white;
+} 
+
+   </style>
+    <body>
+        <table id="titleBar" border=0>
+            <tr>
+                <td id="titlePad">
+                    <p id="title">2048</p>
+                </td>
+                <td id="scorePad"> 
+                    <p id="scoreType">Score</p>
+                    <p id="score"></p>
+            </tr>
+        </table>
+        <table id="board" border=0>
+            <tr>
+                <td id="00"></td>
+                <td id="01"></td>
+                <td id="02"></td>
+                <td id="03"></td>
+            </tr>
+            <tr>
+                <td id="10"></td>
+                <td id="11"></td>
+                <td id="12"></td>
+                <td id="13"></td>
+            </tr>
+            <tr>
+                <td id="20"></td>
+                <td id="21"></td>
+                <td id="22"></td>
+                <td id="23"></td>
+            </tr>
+            <tr>
+                <td id="30"></td>
+                <td id="31"></td>
+                <td id="32"></td>
+                <td id="33"></td>
+            </tr>
+        </table>
+    </body>
+    <script type="text/javascript" src="2048.js"></script>
+</html>

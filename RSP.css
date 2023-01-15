@@ -1,0 +1,28 @@
+.RSP-header{
+    font-size: 75px;
+    font-style: initial;
+    color:midnightblue;
+    text-align:center;
+    font-weight:bold;
+}
+
+.RSP-information{
+    font-style:normal;
+    color:aliceblue;
+    background-color: black;
+    text-align: center;
+    font-weight: 500;
+}
+
+.RSP-detail-information{
+    font-style:normal;
+    color: aliceblue;
+    background-color: black;
+    text-align: center;
+    font-weight: 500;
+}
+
+.card-img-top{
+    width: auto;
+    height: 200px;
+}
